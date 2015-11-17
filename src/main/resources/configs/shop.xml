@@ -6,11 +6,75 @@
     <category>
         <sub_category>
             <good>
-                <product_name></product_name>
-                <provider></provider>
+                <product_name>tovar1</product_name>
+                <provider>China</provider>
                 <model>ad123</model>
                 <date>29-12-2015</date>
-                <color></color>
+                <color>red</color>
+                <price>123</price>
+            </good>
+            <good>
+                <product_name>tovar3</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
+                <price>123</price>
+            </good>
+        </sub_category>
+        <sub_category>
+            <good>
+                <product_name>tovar11</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
+                <price>123</price>
+            </good>
+            <good>
+                <product_name>tovar12</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
+                <price>123</price>
+            </good>
+        </sub_category>
+    </category>
+    <category>
+        <sub_category>
+            <good>
+                <product_name>tovar6</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
+                <price>123</price>
+            </good>
+            <good>
+                <product_name>tovar2</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
+                <price>123</price>
+            </good>
+        </sub_category>
+        <sub_category>
+            <good>
+                <product_name>tovar3</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
+                <price>123</price>
+            </good>
+            <good>
+                <product_name>tovar5</product_name>
+                <provider>China</provider>
+                <model>ad123</model>
+                <date>29-12-2015</date>
+                <color>red</color>
                 <price>123</price>
             </good>
         </sub_category>
