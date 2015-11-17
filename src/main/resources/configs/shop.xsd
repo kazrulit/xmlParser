@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.epam.kz"
+            xmlns="http://www.epam.kz"
+            elementFormDefault="qualified">
+    <xsd:element name="shop">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="category" type="Category" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="Category">
+        <xsd:sequence>
+            <xsd:element name="sub_category" type="sub_category" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="sub_category">
+        <xsd:sequence>
+            <xsd:element name="good" type="Good" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-3]{1}[0-9]{1}-[0-1]{1}[0-9]{1}-[0-9]{4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Good">
+        <xsd:sequence>
+            <xsd:element name="product_name" type="xsd:string"/>
+            <xsd:element name="provider" type="xsd:string"/>
+            <xsd:element name="model" type="xsd:string"/>
+            <xsd:element name="date" type="date"/>
+            <xsd:element name="color" type="xsd:string"/>
+            <xsd:element name="price" type="xsd:positiveInteger"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

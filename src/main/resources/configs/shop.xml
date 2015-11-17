@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE shop SYSTEM "shop.dtd">
+<shop xmlns="http://www.epam.kz"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+      xsd:schemaLocation="shop.xsd">
+    <category>
+        <sub_category>
+            <good>
+                <product_name></product_name>
+                <provider></provider>
+                <model></model>
+                <date>10-13-2015</date>
+                <color></color>
+                <price>123</price>
+            </good>
+        </sub_category>
+    </category>
+</shop>
