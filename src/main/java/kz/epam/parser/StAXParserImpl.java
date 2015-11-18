@@ -61,7 +61,7 @@ public class StAXParserImpl {
                 category = new Category();
                 category.setName(startElement.getAttributeByName(new QName(Configs.NAME)).getValue());
                 break;
-            case SUBCATEGORY:
+            case SUB_CATEGORY:
                 subCategory = new SubCategory();
                 subCategory.setName(startElement.getAttributeByName(new QName(Configs.NAME)).getValue());
                 break;
@@ -82,7 +82,7 @@ public class StAXParserImpl {
             case CATEGORY:
                 shopList.add(category);
                 break;
-            case SUBCATEGORY:
+            case SUB_CATEGORY:
                 category.getSubCategories().add(subCategory);
                 break;
             case GOOD:

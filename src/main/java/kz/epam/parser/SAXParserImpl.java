@@ -27,7 +27,7 @@ public class SAXParserImpl extends DefaultHandler {
                 category = new Category();
                 category.setName(attributes.getValue(Configs.NAME));
                 break;
-            case SUBCATEGORY:
+            case SUB_CATEGORY:
                 subCategory = new SubCategory();
                 subCategory.setName(attributes.getValue(Configs.NAME));
                 break;
@@ -47,7 +47,7 @@ public class SAXParserImpl extends DefaultHandler {
             case CATEGORY:
                 shopList.add(category);
                 break;
-            case SUBCATEGORY:
+            case SUB_CATEGORY:
                 category.getSubCategories().add(subCategory);
                 break;
             case GOOD:

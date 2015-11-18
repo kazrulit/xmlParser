@@ -30,15 +30,15 @@ public class ShowXSLT extends Action {
         Source xmlSource = new StreamSource(new File(Configs.FILE_PATH));
 
         StreamResult streamResult = new StreamResult(new StringWriter());
-        transformer.setParameter("type", "category");
+        transformer.setParameter(Configs.TYPE, Configs.CATEGORY);
 
-        if(request.getParameter("cat") != null) {
-            transformer.setParameter("type", "subcategory");
-            transformer.setParameter("cat", request.getParameter("cat"));
+        if(request.getParameter(Configs.CAT) != null) {
+            transformer.setParameter(Configs.TYPE, Configs.SUBCATEGORY);
+            transformer.setParameter(Configs.CAT, request.getParameter(Configs.CAT));
 
-            if(request.getParameter("sub") != null) {
-                transformer.setParameter("type", "good");
-                transformer.setParameter("sub", request.getParameter("sub"));
+            if(request.getParameter(Configs.SUB) != null) {
+                transformer.setParameter(Configs.TYPE, Configs.GOOD);
+                transformer.setParameter(Configs.SUB, request.getParameter(Configs.SUB));
             }
         }
 

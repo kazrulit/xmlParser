@@ -5,7 +5,7 @@ package kz.epam.configs;
  */
 public class Configs {
     public static final String CATEGORY = "category";
-    public static final String SUBCATEGORY = "sub_category";
+    public static final String SUB_CATEGORY = "sub_category";
     public static final String GOOD = "good";
     public static final String PRODUCT_NAME = "product_name";
     public static final String PROVIDER = "provider";
@@ -20,4 +20,14 @@ public class Configs {
     public static final String SUCCESS = "success";
     public static final String SHOP_LIST = "shopList";
     public static final String NAME = "name";
+
+
+    public static final String TYPE = "type";
+    public static final String CAT ="cat";
+    public static final String SUB = "sub";
+    public static final String SUBCATEGORY = "subcategory";
+
+
+
+
 }
