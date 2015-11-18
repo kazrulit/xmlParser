@@ -1,5 +1,6 @@
 package kz.epam.action;
 
+import kz.epam.configs.Configs;
 import kz.epam.entity.Category;
 import kz.epam.service.SAXFactoryService;
 import org.apache.struts.action.Action;
@@ -21,8 +22,8 @@ public class Main extends Action {
 
         saxFactoryService.runParser();
         List<Category> shopList = saxFactoryService.getShopList();
-        request.setAttribute("shopList", shopList);
+        request.setAttribute(Configs.SHOP_LIST, shopList);
 
-        return mapping.findForward("success");
+        return mapping.findForward(Configs.SUCCESS);
     }
 }

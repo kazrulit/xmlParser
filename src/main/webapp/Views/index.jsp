@@ -8,7 +8,7 @@
 <body>
 <a href="/main.do">SAX</a>
 <a href="/dom.do">DOM</a>
-<a href="/">STAX</a>
+<a href="/stax.do">STAX</a>
 <div class="tree">
   <ul>
   <logic:iterate id="categoryList" name="shopList">

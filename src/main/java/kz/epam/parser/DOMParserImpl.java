@@ -19,14 +19,10 @@ import java.util.List;
  * Created by admin on 11/17/2015.
  */
 public class DOMParserImpl {
-    private List<Category> shopList;
+    private List<Category> shopList = new ArrayList<>();
     private Category category;
     private SubCategory subCategory;
     private Good good;
-
-    public DOMParserImpl() {
-        shopList = new ArrayList<>();
-    }
 
     public void parse() {
         try {

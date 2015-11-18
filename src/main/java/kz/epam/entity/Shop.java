@@ -7,7 +7,7 @@ import java.util.List;
  * Created by admin on 11/17/2015.
  */
 public class Shop {
-    private List<Category> categories = new ArrayList<Category>();
+    private List<Category> categories = new ArrayList<>();
 
     public List<Category> getCategories() {
         return categories;
