@@ -1,9 +1,11 @@
 package kz.epam.parser;
 
+import kz.epam.configs.Configs;
 import kz.epam.entity.Category;
 import kz.epam.entity.Good;
 import kz.epam.entity.SubCategory;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -17,9 +19,6 @@ import java.util.List;
 
 import static kz.epam.configs.Configs.*;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class StAXParserImpl {
     private List<Category> shopList = new ArrayList<>();
     private Category category;
@@ -46,6 +45,8 @@ public class StAXParserImpl {
                         break;
                 }
             }
+
+            eventReader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,9 +59,11 @@ public class StAXParserImpl {
         switch (qName) {
             case CATEGORY:
                 category = new Category();
+                category.setName(startElement.getAttributeByName(new QName(Configs.NAME)).getValue());
                 break;
             case SUBCATEGORY:
                 subCategory = new SubCategory();
+                subCategory.setName(startElement.getAttributeByName(new QName(Configs.NAME)).getValue());
                 break;
             case GOOD:
                 good = new Good();
@@ -79,15 +82,12 @@ public class StAXParserImpl {
             case CATEGORY:
                 shopList.add(category);
                 break;
-
             case SUBCATEGORY:
                 category.getSubCategories().add(subCategory);
                 break;
-
             case GOOD:
                 subCategory.getGoodList().add(good);
                 break;
-
             case PRODUCT_NAME:
                 good.setProductName(content);
                 break;

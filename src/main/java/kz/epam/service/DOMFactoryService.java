@@ -5,9 +5,6 @@ import kz.epam.parser.DOMParserImpl;
 
 import java.util.List;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class DOMFactoryService implements FactoryService {
     private List<Category> shopList;
 

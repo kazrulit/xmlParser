@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="http://www.epam.kz"
-            xmlns="http://www.epam.kz"
+            targetNamespace="shop.xsd"
+            xmlns="shop.xsd"
             elementFormDefault="qualified">
     <xsd:element name="shop">
         <xsd:complexType>
@@ -15,12 +15,14 @@
         <xsd:sequence>
             <xsd:element name="sub_category" type="sub_category" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute type="xsd:string" name="name" use="required"/>
     </xsd:complexType>
 
     <xsd:complexType name="sub_category">
         <xsd:sequence>
             <xsd:element name="good" type="Good" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute type="xsd:string" name="name" use="required"/>
     </xsd:complexType>
 
     <xsd:simpleType name="model">

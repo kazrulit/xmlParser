@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE shop SYSTEM "shop.dtd">
-<shop xmlns="http://www.epam.kz"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
-      xsd:schemaLocation="shop.xsd">
-    <category>
-        <sub_category>
+<shop xmlns="shop.xsd">
+    <category name="clothes">
+        <sub_category name="turkish">
             <good>
                 <product_name>tovar1</product_name>
                 <provider>China</provider>
@@ -22,7 +19,7 @@
                 <price>123</price>
             </good>
         </sub_category>
-        <sub_category>
+        <sub_category name="china">
             <good>
                 <product_name>tovar11</product_name>
                 <provider>China</provider>
@@ -41,8 +38,8 @@
             </good>
         </sub_category>
     </category>
-    <category>
-        <sub_category>
+    <category name="techniques">
+        <sub_category name="phones">
             <good>
                 <product_name>tovar6</product_name>
                 <provider>China</provider>
@@ -60,7 +57,7 @@
                 <price>123</price>
             </good>
         </sub_category>
-        <sub_category>
+        <sub_category name="laptops">
             <good>
                 <product_name>tovar3</product_name>
                 <provider>China</provider>

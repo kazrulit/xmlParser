@@ -1,43 +1,35 @@
 package kz.epam.parser;
 
+import kz.epam.configs.Configs;
 import kz.epam.entity.Category;
 import kz.epam.entity.Good;
 import kz.epam.entity.SubCategory;
-import kz.epam.service.SAXFactoryService;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import javax.xml.parsers.SAXParserFactory;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import static kz.epam.configs.Configs.*;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class SAXParserImpl extends DefaultHandler {
-    private List<Category> shopList;
+    private List<Category> shopList = new ArrayList<>();
     private Category category;
     private SubCategory subCategory;
     private Good good;
     private String content;
 
     @Override
-    public void startDocument() throws SAXException {
-        shopList = new ArrayList<Category>();
-    }
-
-    @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         switch (qName) {
             case CATEGORY:
                 category = new Category();
+                category.setName(attributes.getValue(Configs.NAME));
                 break;
             case SUBCATEGORY:
                 subCategory = new SubCategory();
+                subCategory.setName(attributes.getValue(Configs.NAME));
                 break;
             case GOOD:
                 good = new Good();
@@ -55,15 +47,12 @@ public class SAXParserImpl extends DefaultHandler {
             case CATEGORY:
                 shopList.add(category);
                 break;
-
             case SUBCATEGORY:
                 category.getSubCategories().add(subCategory);
                 break;
-
             case GOOD:
                 subCategory.getGoodList().add(good);
                 break;
-
             case PRODUCT_NAME:
                 good.setProductName(content);
                 break;

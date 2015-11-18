@@ -17,6 +17,7 @@ public class DomAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         DOMFactoryService domFactoryService = new DOMFactoryService();
         domFactoryService.runParser();
+
         List<Category> shopList = domFactoryService.getShopList();
         request.setAttribute(Configs.SHOP_LIST, shopList);
         return mapping.findForward(Configs.SUCCESS);

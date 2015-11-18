@@ -9,9 +9,6 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.List;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class SAXFactoryService implements FactoryService {
     private List<Category> shopList;
 

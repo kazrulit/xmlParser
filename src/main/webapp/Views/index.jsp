@@ -4,6 +4,11 @@
 <html>
 <head>
     <title></title>
+  <style>
+    .good {
+      margin: 10px 0px;
+    }
+  </style>
 </head>
 <body>
 <a href="/main.do">SAX</a>
@@ -13,18 +18,17 @@
   <ul>
   <logic:iterate id="categoryList" name="shopList">
       <li>
-        Category
+        ${categoryList.name}
         <ul>
           <bean:define id="categoryIterator" name="categoryList" property="subCategories" />
           <logic:iterate id="subCategorList" name="categoryIterator">
             <li>
-              SubCategory
+              ${subCategorList.name}
               <ul>
                 <bean:define id="goodsIterator" name="subCategorList" property="goodList" />
                 <logic:iterate id="good" name="goodsIterator">
                   <li>
-                    Good
-                    <ul>
+                    <ul class="good">
                       <li><b>Product name:</b> ${good.productName}</li>
                       <li><b>Provider:</b> ${good.provider}</li>
                       <li><b>Model:</b> ${good.model}</li>

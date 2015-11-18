@@ -15,9 +15,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class DOMParserImpl {
     private List<Category> shopList = new ArrayList<>();
     private Category category;
@@ -33,12 +30,19 @@ public class DOMParserImpl {
 
             document.getDocumentElement().normalize();
 
-            NodeList nodeCategoryList = document.getElementsByTagName("category");
+            NodeList nodeCategoryList = document.getElementsByTagName(Configs.CATEGORY);
 
             for (int i = 0; i < nodeCategoryList.getLength(); i++) {
                 Node categoryNode = nodeCategoryList.item(i);
-                category = new Category();
-                setSubCategoryNodeList(categoryNode);
+                if (categoryNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element)categoryNode;
+                    category = new Category();
+                    category.setName(element.getAttribute(Configs.NAME));
+
+                    setSubCategoryNodeList(categoryNode);
+
+                    shopList.add(category);
+                }
             }
 
         } catch (Exception e) {
@@ -47,18 +51,18 @@ public class DOMParserImpl {
     }
 
     private void setSubCategoryNodeList(Node node) {
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            NodeList subCategories = node.getChildNodes();
-            for (int j = 0; j < subCategories.getLength(); j++) {
-                Node subCategoryNode = subCategories.item(j);
-                if (subCategoryNode.getNodeType() == Node.ELEMENT_NODE) {
-                    subCategory = new SubCategory();
-                    goodNodeList(subCategoryNode);
-                    category.getSubCategories().add(subCategory);
-                }
+        NodeList subCategories = node.getChildNodes();
+        for (int j = 0; j < subCategories.getLength(); j++) {
+            Node subCategoryNode = subCategories.item(j);
+            if (subCategoryNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) subCategoryNode;
+                subCategory = new SubCategory();
+                subCategory.setName(element.getAttribute(Configs.NAME));
+                goodNodeList(subCategoryNode);
+                category.getSubCategories().add(subCategory);
             }
-            shopList.add(category);
         }
+
     }
 
     private void goodNodeList(Node node) {
@@ -68,12 +72,12 @@ public class DOMParserImpl {
             if (goodNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element goodElement = (Element) goodNode;
                 good = new Good();
-                good.setProductName(goodElement.getElementsByTagName("product_name").item(0).getTextContent());
-                good.setProvider(goodElement.getElementsByTagName("provider").item(0).getTextContent());
-                good.setModel(goodElement.getElementsByTagName("model").item(0).getTextContent());
-                good.setDate(goodElement.getElementsByTagName("date").item(0).getTextContent());
-                good.setColor(goodElement.getElementsByTagName("color").item(0).getTextContent());
-                good.setPrice(Integer.parseInt(goodElement.getElementsByTagName("price").item(0).getTextContent()));
+                good.setProductName(goodElement.getElementsByTagName(Configs.PRODUCT_NAME).item(0).getTextContent());
+                good.setProvider(goodElement.getElementsByTagName(Configs.PROVIDER).item(0).getTextContent());
+                good.setModel(goodElement.getElementsByTagName(Configs.MODEL).item(0).getTextContent());
+                good.setDate(goodElement.getElementsByTagName(Configs.DATE).item(0).getTextContent());
+                good.setColor(goodElement.getElementsByTagName(Configs.COLOR).item(0).getTextContent());
+                good.setPrice(Integer.parseInt(goodElement.getElementsByTagName(Configs.PRICE).item(0).getTextContent()));
                 subCategory.getGoodList().add(good);
             }
         }

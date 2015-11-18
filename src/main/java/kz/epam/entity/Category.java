@@ -3,11 +3,9 @@ package kz.epam.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class Category {
     private List<SubCategory> subCategories = new ArrayList<>();
+    private String name;
 
     public List<SubCategory> getSubCategories() {
         return subCategories;
@@ -15,5 +13,13 @@ public class Category {
 
     public void setSubCategories(List<SubCategory> subCategories) {
         this.subCategories = subCategories;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

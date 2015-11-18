@@ -5,9 +5,6 @@ import kz.epam.parser.StAXParserImpl;
 
 import java.util.List;
 
-/**
- * Created by admin on 11/17/2015.
- */
 public class StAXFactoryService implements FactoryService {
     private List<Category> shopList;
 
