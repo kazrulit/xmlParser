@@ -14,6 +14,7 @@
 <a href="/main.do">SAX</a>
 <a href="/dom.do">DOM</a>
 <a href="/stax.do">STAX</a>
+<a href="/show.do">ADD ELEMENT</a>
 <div class="tree">
   <ul>
   <logic:iterate id="categoryList" name="shopList">

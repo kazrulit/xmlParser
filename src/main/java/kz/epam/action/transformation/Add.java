@@ -31,44 +31,36 @@ public class Add extends Action {
 
         TransformerImpl transformerImpl = (TransformerImpl)transformer;
         if(transformerImpl != null) {
-            transformerImpl.setParameter("cat", "clothes");
-            transformerImpl.setParameter("sub", "china");
+            if(request.getParameter(Configs.CAT) != null && request.getParameter(Configs.SUB) != null) {
+                transformerImpl.setParameter(Configs.CAT, request.getParameter(Configs.CAT));
+                transformerImpl.setParameter(Configs.SUB, request.getParameter(Configs.SUB));
 
-            Good good = new Good();
+                Good good = new Good();
 
-            if(request.getParameter(Configs.NAME) != null)
-                good.setProductName(request.getParameter(Configs.NAME));
+                if (request.getParameter(Configs.NAME) != null)
+                    good.setProductName(request.getParameter(Configs.NAME));
 
-            if(request.getParameter(Configs.PROVIDER) != null)
-                good.setProvider(request.getParameter(Configs.PROVIDER));
+                if (request.getParameter(Configs.PROVIDER) != null)
+                    good.setProvider(request.getParameter(Configs.PROVIDER));
 
-            if(request.getParameter(Configs.MODEL) != null)
-                good.setModel(request.getParameter(Configs.MODEL));
+                if (request.getParameter(Configs.MODEL) != null)
+                    good.setModel(request.getParameter(Configs.MODEL));
 
-            if(request.getParameter(Configs.DATE) != null)
-                good.setDate(request.getParameter(Configs.DATE));
+                if (request.getParameter(Configs.DATE) != null)
+                    good.setDate(request.getParameter(Configs.DATE));
 
-            if(request.getParameter(Configs.COLOR) != null)
-                good.setColor(request.getParameter(Configs.COLOR));
+                if (request.getParameter(Configs.COLOR) != null)
+                    good.setColor(request.getParameter(Configs.COLOR));
 
-            if(request.getParameter(Configs.PRICE) != null)
-                good.setPrice(Integer.valueOf(request.getParameter(Configs.PRICE)));
+                if (request.getParameter(Configs.PRICE) != null)
+                    good.setPrice(Integer.valueOf(request.getParameter(Configs.PRICE)));
 
-            /*good.setProvider("UZBEKISTAN");
-            good.setModel("123sd");
-            good.setDate("12/12/2015");
-            good.setColor("red");
-            good.setPrice(123);*/
+                transformerImpl.setParameter(Configs.GOOD, good);
+                transformerImpl.transform(xmlSource, streamResult);
+            }
 
-            transformerImpl.setParameter("good", good);
-            transformerImpl.transform(xmlSource, streamResult);
         }
-
-
-        response.getWriter().print(streamResult.getWriter());
-        //transformer.setParameter(Configs.TYPE, Configs.CATEGORY);
-
-
-        return super.execute(mapping, form, request, response);
+        //return  super.execute(mapping, form, request, response);
+        return mapping.findForward(Configs.SUCCESS);
     }
 }

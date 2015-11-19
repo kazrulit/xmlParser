@@ -19,7 +19,7 @@
                 <action path="/show" type="kz.epam.action.transformation.ShowXSLT"></action>
 
                 <action path="/add" type="kz.epam.action.transformation.Add">
-                        <forward name="success" path="/add.do" redirect="true"/>
+                        <forward name="success" path="/main.do" redirect="true"/>
                 </action>
         </action-mappings>
 </struts-config>
