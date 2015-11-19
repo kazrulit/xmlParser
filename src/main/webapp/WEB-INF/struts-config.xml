@@ -16,6 +16,10 @@
                 <action path="/stax" type="kz.epam.action.StaxAction">
                         <forward name="success" path="/Views/index.jsp"/>
                 </action>
-                <action path="/show" type="kz.epam.action.ShowXSLT"></action>
+                <action path="/show" type="kz.epam.action.transformation.ShowXSLT"></action>
+
+                <action path="/add" type="kz.epam.action.transformation.Add">
+                        <forward name="success" path="/add.do" redirect="true"/>
+                </action>
         </action-mappings>
 </struts-config>

@@ -1,4 +1,4 @@
-package kz.epam.action;
+package kz.epam.action.transformation;
 
 import kz.epam.configs.Configs;
 import org.apache.struts.action.Action;
@@ -23,9 +23,9 @@ public class ShowXSLT extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Source source = new StreamSource(new File(Configs.XSLT_PATH));
+        Source xslSource = new StreamSource(new File(Configs.XSLT_PATH));
 
-        Transformer transformer = transformerFactory.newTransformer(source);
+        Transformer transformer = transformerFactory.newTransformer(xslSource);
 
         Source xmlSource = new StreamSource(new File(Configs.FILE_PATH));
 
@@ -40,6 +40,10 @@ public class ShowXSLT extends Action {
                 transformer.setParameter(Configs.TYPE, Configs.GOOD);
                 transformer.setParameter(Configs.SUB, request.getParameter(Configs.SUB));
             }
+        }
+
+        if(request.getParameter(Configs.TYPE) != null) {
+            transformer.setParameter(Configs.TYPE, request.getParameter(Configs.TYPE));
         }
 
         transformer.transform(xmlSource, streamResult);

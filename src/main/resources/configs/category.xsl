@@ -52,7 +52,24 @@
                                 <p><b>Price:</b><xsl:value-of select="xsd:price"/></p>
                             </div>
                         </xsl:for-each>
+                        <a href="/show.do?type=form&amp;cat={$cat}&amp;sub={$sub}">Add new</a>
                     </xsl:when>
+
+                    <xsl:when test="$type = 'form'">
+                        <h2>Form</h2>
+                        <form action="/add.do">
+                            <input type="hidden" name="cat" value="{$cat}"/>
+                            <input type="hidden" name="sub" value="{$sub}"/>
+                            <div>Product name:<input name="name"/></div>
+                            <div>Model: <input name="model"/></div>
+                            <div>Provider: <input name="provider"/></div>
+                            <div>Date: <input name="date"/></div>
+                            <div>Color: <input name="color"/></div>
+                            <div>Price: <input name="price"/></div>
+                            <div><input type="submit" value="Save"/></div>
+                        </form>
+                    </xsl:when>
+
                 </xsl:choose>
             </body>
         </html>

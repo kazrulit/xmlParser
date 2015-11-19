@@ -16,6 +16,8 @@ public class Configs {
 
     public static final String FILE_PATH = "D:\\KhamidJava\\xmlParser\\src\\main\\resources\\configs\\shop.xml";
     public static final String XSLT_PATH = "D:\\KhamidJava\\xmlParser\\src\\main\\resources\\configs\\category.xsl";
+    public static final String XSL_ADD = "D:\\KhamidJava\\xmlParser\\src\\main\\resources\\configs\\add.xsl";
+
 
     public static final String SUCCESS = "success";
     public static final String SHOP_LIST = "shopList";
