@@ -18,7 +18,7 @@
                 </action>
                 <action path="/show" type="kz.epam.action.transformation.ShowXSLT"></action>
 
-                <action path="/add" type="kz.epam.action.transformation.Add">
+                <action path="/add" type="kz.epam.action.transformation.AddXML">
                         <forward name="success" path="/main.do" redirect="true"/>
                 </action>
         </action-mappings>

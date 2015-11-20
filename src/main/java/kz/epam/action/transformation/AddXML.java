@@ -18,7 +18,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.StringWriter;
 
-public class Add extends Action {
+public class AddXML extends Action {
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
